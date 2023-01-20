@@ -3,7 +3,6 @@
 #include <linux/err.h>
 #include <linux/slab.h>
 #include <linux/mm.h>
-#include <linux/filter.h>
 #include <linux/perf_event.h>
 #include <uapi/linux/btf.h>
 #include <linux/rcupdate_trace.h>
@@ -23,4 +22,5 @@ static void bpf_array_free_percpu(struct bpf_array *array)
 		free_percpu(array->pptrs[i]);
 		cond_resched();
 	}
+	return;
 }
